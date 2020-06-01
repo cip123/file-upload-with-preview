@@ -150,6 +150,7 @@ Make sure to set `multiple` on your input if you want to allow the user to selec
 | options.images.backgroundImage | String | Replace background image for image grid. |
 | options.images.successFileAltImage | String | Replace successful alternate file upload image. |
 | options.images.successPdfImage | String | Replace successful PDF upload image. |
+| options.images.placeholderImage | String | Placeholder to display while the image is loading. |
 | options.images.successVideoImage | String | Replace successful video upload image. |
 | options.presetFiles | Array | Provide an array of image paths to be automatically uploaded and displayed on page load (can be images hosted on server or URLs) |
 | options.showDeleteButtonOnImages | Boolean | Show a delete button on images in the grid. Default `true` |
