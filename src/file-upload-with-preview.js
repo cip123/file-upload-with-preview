@@ -55,6 +55,7 @@ export default class FileUploadWithPreview {
             this.imagePreview.style.backgroundImage = 'none'
             this.imagePreview.style.backgroundColor = '#efefea'
             this.imagePreview.innerHTML = `<div style="text-align: center; vertical-align: middle"><h3 style="color:  #9e9e9e ">Loading ...</h3><img src="${ this.loadingImage }"/></div>`;
+            this.loading = true
             this.addImagesFromPath(this.options.presetFiles).then(function () {
             }).catch(function (error) {
                 console.log('Error - ' + error.toString())
@@ -62,6 +63,7 @@ export default class FileUploadWithPreview {
             })
 
         } else {
+            this.loading = false
             this.inputLabel.innerHTML = this.options.text.chooseFile
             this.imagePreview.style.backgroundImage = `url("${ this.baseImage }")`
             this.options.presetFiles = null
@@ -359,6 +361,7 @@ export default class FileUploadWithPreview {
 
             this.refreshPreviewPanel()
             this.addFiles(presetFiles)
+            this.loading = false
             resolve()
         })
     }

@@ -934,11 +934,13 @@ var FileUploadWithPreview = /*#__PURE__*/function () {
       this.imagePreview.style.backgroundImage = 'none';
       this.imagePreview.style.backgroundColor = '#efefea';
       this.imagePreview.innerHTML = "<div style=\"text-align: center; vertical-align: middle\"><h3 style=\"color:  #9e9e9e \">Loading ...</h3><img src=\"".concat(this.loadingImage, "\"/></div>");
+      this.loading = true;
       this.addImagesFromPath(this.options.presetFiles).then(function () {}).catch(function (error) {
         console.log('Error - ' + error.toString());
         console.log('Warning - An image you added from a path is not able to be added to the cachedFileArray.');
       });
     } else {
+      this.loading = false;
       this.inputLabel.innerHTML = this.options.text.chooseFile;
       this.imagePreview.style.backgroundImage = "url(\"".concat(this.baseImage, "\")");
       this.options.presetFiles = null;
@@ -1189,13 +1191,16 @@ var FileUploadWithPreview = /*#__PURE__*/function () {
                   break;
 
                 case 24:
+                  _this3.loading = false;
+
                   _this3.refreshPreviewPanel();
 
                   _this3.addFiles(presetFiles);
 
+                  _this3.loading = false;
                   resolve();
 
-                case 27:
+                case 29:
                 case "end":
                   return _context.stop();
               }
